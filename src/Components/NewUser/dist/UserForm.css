@@ -1,0 +1,23 @@
+form .user-form__controls {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+form .user-form__controls .user-form__control {
+  margin-bottom: 10px;
+  width: inherit;
+}
+form .user-form__controls .user-form__control label {
+  display: block;
+  margin-bottom: 10px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+}
+form .user-form__controls .user-form__control input {
+  width: 100%;
+  padding: 0.25em;
+}
+form .user-form__controls .user-form__actions {
+  width: inherit;
+}
