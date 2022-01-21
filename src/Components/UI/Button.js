@@ -1,3 +1,5 @@
+import React from "react";
+
 import './dist/Button.css';
 
 const Button = (props) => {
