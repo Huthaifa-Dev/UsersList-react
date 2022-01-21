@@ -7,6 +7,7 @@ import Button from '../UI/Button';
 import Card from '../UI/Card';
 import { useState } from 'react';
 import ErrorModal from "../UI/ErrorModal";
+import Wrapper from "../Helpers/Wrapper";
 
 const UserForm = (props) => {
     const [enteredName, setEnteredName] = useState('');
@@ -47,7 +48,7 @@ const UserForm = (props) => {
     }
 
     return (
-        <div>
+        <React.Fragment>
             {warning && <ErrorModal title={warning.title} message={warning.message} onClick={warningHandler} />}
             <Card className="user-form__controls">
                 <form onSubmit={addUserHandler}>
@@ -66,7 +67,7 @@ const UserForm = (props) => {
 
                 </form>
             </Card>
-        </div>
+        </React.Fragment>
 
     )
 }

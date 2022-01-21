@@ -18,10 +18,10 @@ function App() {
     setUsers(prevUsers => [...prevUsers, { 'name': userName, 'age': userAge }]);
   }
   return (
-    <div>
+    <React.Fragment>
       <UserForm onAddUser={addUserHandler} />
       <UsersList users={users} />
-    </div>
+    </React.Fragment>
   );
 }
 
