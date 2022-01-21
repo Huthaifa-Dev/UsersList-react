@@ -18,7 +18,7 @@ const UserForm = (props) => {
         setEnteredAge(event.target.value);
     }
 
-    const submitHandler = (event) => {
+    const addUserHandler = (event) => {
         event.preventDefault();
         if (enteredAge.trim().length === 0 || enteredName.trim().length === 0) {
             setWarning(true);
@@ -34,7 +34,7 @@ const UserForm = (props) => {
     }
 
     return (
-        <form onSubmit={submitHandler}>
+        <form onSubmit={addUserHandler}>
             <Card className="user-form__controls">
                 <div className="user-form__control">
                     <label htmlFor='username'>Username</label>
@@ -45,7 +45,7 @@ const UserForm = (props) => {
                     <input id='age' type='number' value={enteredAge} onChange={onAgeChange} />
                 </div>
                 <div className="user-form__actions">
-                    <Button  >Add User</Button>
+                    <Button type='submit'>Add User</Button>
                 </div>
             </Card>
         </form>
