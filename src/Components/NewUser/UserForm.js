@@ -7,7 +7,6 @@ import Button from '../UI/Button';
 import Card from '../UI/Card';
 import { useState } from 'react';
 import ErrorModal from "../UI/ErrorModal";
-import Wrapper from "../Helpers/Wrapper";
 
 const UserForm = (props) => {
     const [enteredName, setEnteredName] = useState('');
