@@ -14,12 +14,12 @@ function App() {
 
   const [users, setUsers] = useState(DUMP_USERS);
 
-  const storeUser = (user) => {
-    setUsers(prevUsers => [user, ...prevUsers]);
+  const addUserHandler = (userName, userAge) => {
+    setUsers(prevUsers => [...prevUsers, { 'name': userName, 'age': userAge }]);
   }
   return (
     <div>
-      <UserForm addUser={storeUser} />
+      <UserForm onAddUser={addUserHandler} />
       <UsersList users={users} />
     </div>
   );

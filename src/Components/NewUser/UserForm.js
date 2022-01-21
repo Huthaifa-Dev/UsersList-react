@@ -20,29 +20,32 @@ const UserForm = (props) => {
 
     const submitHandler = (event) => {
         event.preventDefault();
-        if (enteredAge <= 0 || enteredName === '') {
+        if (enteredAge.trim().length === 0 || enteredName.trim().length === 0) {
             setWarning(true);
             return;
         }
-        props.addUser({
-            'name': enteredName,
-            'age': enteredAge
-        });
+        if (+enteredAge < 1) {
+            setWarning(true);
+            return;
+        }
+        props.onAddUser(enteredName, enteredAge);
+        setEnteredAge('');
+        setEnteredName('');
     }
 
     return (
         <form onSubmit={submitHandler}>
             <Card className="user-form__controls">
                 <div className="user-form__control">
-                    <label>Username</label>
-                    <input type='text' onChange={onNameChange} />
+                    <label htmlFor='username'>Username</label>
+                    <input id='username' type='text' value={enteredName} onChange={onNameChange} />
                 </div>
                 <div className="user-form__control">
-                    <label>Age (Years)</label>
-                    <input type='number' onChange={onAgeChange} />
+                    <label htmlFor='age'>Age (Years)</label>
+                    <input id='age' type='number' value={enteredAge} onChange={onAgeChange} />
                 </div>
                 <div className="user-form__actions">
-                    <Button type='submit'>Add User</Button>
+                    <Button  >Add User</Button>
                 </div>
             </Card>
         </form>
