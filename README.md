@@ -87,7 +87,7 @@ To do:
 
 
 ## Contact
-Created by [@Huthaifa-Dev](https://www.linkedin.com/in/huthaifa-jamal-ba11b6190/) - feel free to contact me!
+Created by [@Huthaifa-Jamal](www.linkedin.com/in/huthaifa-jamal) - feel free to contact me!
 
 
 <!-- Optional -->
