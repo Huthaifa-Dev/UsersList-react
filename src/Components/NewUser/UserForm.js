@@ -1,25 +1,19 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 
 import './dist/UserForm.css';
 
 
 import Button from '../UI/Button';
 import Card from '../UI/Card';
-import { useState } from 'react';
 import ErrorModal from "../UI/ErrorModal";
 
 const UserForm = (props) => {
-    const [enteredName, setEnteredName] = useState('');
-    const [enteredAge, setEnteredAge] = useState('');
+    const nameInputRef = useRef();
+    const ageInputRef = useRef();
+
     const [warning, setWarning] = useState();
 
-    const onNameChange = (event) => {
-        setEnteredName(event.target.value);
-    }
 
-    const onAgeChange = (event) => {
-        setEnteredAge(event.target.value);
-    }
 
     const warningHandler = () => {
         setWarning(null);
@@ -27,6 +21,8 @@ const UserForm = (props) => {
 
     const addUserHandler = (event) => {
         event.preventDefault();
+        const enteredName = nameInputRef.current.value;
+        const enteredAge = ageInputRef.current.value;
         if (enteredAge.trim().length === 0 || enteredName.trim().length === 0) {
             setWarning({
                 title: 'Invalid input',
@@ -42,8 +38,6 @@ const UserForm = (props) => {
             return;
         }
         props.onAddUser(enteredName, enteredAge);
-        setEnteredAge('');
-        setEnteredName('');
     }
 
     return (
@@ -54,11 +48,11 @@ const UserForm = (props) => {
 
                     <div className="user-form__control">
                         <label htmlFor='username'>Username</label>
-                        <input id='username' type='text' value={enteredName} onChange={onNameChange} />
+                        <input id='username' type='text' ref={nameInputRef} />
                     </div>
                     <div className="user-form__control">
                         <label htmlFor='age'>Age (Years)</label>
-                        <input id='age' type='number' value={enteredAge} onChange={onAgeChange} />
+                        <input id='age' type='number' ref={ageInputRef} />
                     </div>
                     <div className="user-form__actions">
                         <Button type='submit'>Add User</Button>
